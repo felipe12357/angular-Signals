@@ -1,0 +1,36 @@
+<button (click)=refresh()>Refrescar data</button>
+<div class='row' >
+  <div class='col-md-4'>
+
+    <div class="card">
+      <div class="card-header">
+        {{pageTitle}}
+      </div>
+      <!-- importante utilizar el async una sola vez ya q cada vez q se usa se subscribe, por ello utilizmaos 
+       el "as"  -->
+      <div class='card-body'
+     
+       *ngIf="productsSignal().data as productsValue"
+       >
+        <div class='list-group'>
+          <button type='button'
+                  class='list-group-item'
+                  *ngFor='let product of productsValue'
+                  [ngClass]="{'active': product.id === (selectedProductIdS())}"
+                  (click)='onSelected(product.id)'>
+            {{ product.productName }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger"
+         *ngIf="productsSignal().error">
+      {{productsSignal().error}}
+    </div>
+  </div>
+
+  <div class='col-md-8'>
+   <!--  <pm-product-detail [productId]="(selectedProductId$ |async) || 0"/> -->
+   <pm-product-detail />
+  </div>
+</div>

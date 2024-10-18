@@ -1,3 +1,6 @@
+Rama Original:
+    https://github.com/DeborahK/angular-rxjs-signals-fundamentals
+
 # angular-rxjs-signals-fundamentals
 Sample code for the ["RxJS and Angular Signal Fundamentals" course at Pluralsight](https://www.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals)
 
